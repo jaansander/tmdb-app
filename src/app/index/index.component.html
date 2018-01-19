@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="search-container">
+    <div class="search-title">
+      Search for movies
+    </div>
+    <input #searchBox class="search-box" 
+      (keyup.enter)="search(searchBox.value)" 
+      (blur)="search(searchBox.value)" 
+      placeholder="Search for movies using this form"/>
+    <button class="search-button" (click)="search(searchBox.value)">Search</button>
+  </div>
+  <div class="movie-list-container">
+    <div class="card-container" *ngFor="let movie of movies">
+      <img class="movie-poster" src="https://image.tmdb.org/t/p/w342/{{movie.posterPath}}">
+      <div class="movie-title">{{movie.title}}</div>
+      <div class="movie-release-date">Release date: {{movie.releaseDate}}</div>
+      <button type="button" class="movie-details" (click)="openModal(template)">View details>></button>
+      <ng-template #template>
+        <div class="modal-body">
+          <app-movie-details [movieId]="movie.id"></app-movie-details>
+        </div>
+      </ng-template>
+      <div class="movie-rating">{{movie.voteAverage}}
+        <span class="movie-rating-max">/10</span>
+      </div>
+    </div>
+  </div>
+</div>

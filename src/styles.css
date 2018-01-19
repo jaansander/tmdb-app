@@ -1,1 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+
+body{
+    background-color: #2B3E4F;
+}
+
+
+/*  */
+.nav-pills{
+    background-color: #DE6B1E !important; 
+}
+
+.nav-link.active{
+    background-color: #ca611c !important;
+}
+
+.nav-link:hover{
+    background-color: #b35619 !important;
+}
+
+.nav-link.active:hover{
+    background-color: #b35619 !important;
+}
+
+a{
+    color: #FFFFFF !important;
+}
+
+.nav{
+    border-radius: .25rem;
+}
+
+.modal-content{
+    background-color: #2B3E4F;
+    width: 1000px;
+    right: 50%;
+    border: 1px solid #FFFFFF;
+}
