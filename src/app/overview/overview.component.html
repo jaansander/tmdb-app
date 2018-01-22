@@ -1,0 +1,14 @@
+<div class="overview-pill">
+    <div class="overview-item">
+      <span class="overview-item-title">Description: </span>{{movie?.overview}}
+    </div>
+    <div class="overview-item">
+      <span class="overview-item-title">Release date: </span>{{movie?.release_date | date}}
+    </div>
+    <div class="overview-item">
+      <span class="overview-item-title">Runtime: </span>{{movie?.runtime | time}}
+    </div>
+    <div class="overview-item">
+      <span class="overview-item-title">Language: </span>{{movie?.original_language | language}}
+    </div>
+  </div>

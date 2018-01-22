@@ -1,0 +1,12 @@
+.overview-pill{
+    margin-top: 5px;
+    border-radius: 5px;
+    padding: 5px;
+    color: #FFFFFF;
+  }
+  .overview-item{
+    margin-bottom: 3px;
+  }
+  .overview-item-title{
+    color: #DE6B1E;
+  }

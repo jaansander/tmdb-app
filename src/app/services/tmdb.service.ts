@@ -41,6 +41,16 @@ export class TmdbService {
       .map(res => this.formatResponse(res))
   }
 
+  getMovieCast(movieId: any): Promise<any>  {
+    return this.http.get(this.apiRoot + '/movie/' + movieId + '/credits?api_key=' + this.apiKey)
+      .toPromise()
+      .then(res => this.formatCastResponse(res))
+  }
+
+  formatCastResponse(response: any){
+    return response.cast.splice(0, 6);
+  }
+
 }
 
 export interface Movie {

@@ -15,6 +15,12 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { TabsModule } from 'ngx-bootstrap';
 import { ModalModule } from 'ngx-bootstrap';
 import { SafePipe } from './safe-pipe.pipe';
+import { LanguagePipe } from './language-pipe.pipe';
+import { TimePipe } from './time-pipe.pipe';
+import { CastComponent } from './cast/cast.component';
+import { OverviewComponent } from './overview/overview.component';
+
+
 
 
 
@@ -23,7 +29,11 @@ import { SafePipe } from './safe-pipe.pipe';
     AppComponent,
     IndexComponent,
     MovieDetailsComponent,
-    SafePipe
+    SafePipe,
+    LanguagePipe,
+    TimePipe,
+    CastComponent,
+    OverviewComponent
   ],
   imports: [
     BrowserModule,

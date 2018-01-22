@@ -1,0 +1,47 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+  }
+  .wrapper {
+    max-width: 980px;
+    display: grid;
+    grid-gap: 10px;
+  }
+  
+  @media screen and (min-width: 500px) {
+  
+    /* no grid support? */
+    .sidebar {
+      float: left;
+      width: 19.1489%;
+    }
+  
+    .content {
+      float: right;
+    }
+  
+    .wrapper {
+      margin: 0 auto;
+      grid-template-columns: 1fr 9fr;
+    }
+  
+  }
+  
+  .wrapper > * {
+    background-color: #364e63;
+    border: 1px solid #FFFFFF;
+    color: #fff;
+    border-radius: 5px;
+    padding: 1px;
+    /* needed for the floated layout*/
+    margin-top: 7px;
+    margin-left: 3px;
+  }
+
+.box{
+    padding-top: 9px !important;
+    padding-left: 3px !important;
+}
+
+.cast-item{
+    color: #DE6B1E;
+}

@@ -72,13 +72,6 @@ h1, p {
     font-size: 35px;
 }
 
-.overview-pill{
-  margin-top: 5px;
-  border-radius: 5px;
-  padding: 5px;
-  color: #FFFFFF;
-}
-
 .video-pill{
   margin-top: 5px;
   padding: 5px;
@@ -86,9 +79,16 @@ h1, p {
 
 .header-vote-container{
   float: right;
+  margin-top: 10px;
 }
 
 .header-max-vote{
   color: #FFFFFF;
   font-size: 25px;
+  vertical-align: middle;
+}
+
+.tagline{
+  color: #FFFFFF;
+  font-size: 15px;
 }

@@ -5,6 +5,9 @@
         <span class="header-vote">{{movie?.vote_average}}</span>
         <span class="header-max-vote">/10</span>
       </div>
+      <div class="tagline">
+        {{movie?.tagline}}
+      </div>
     </header>
     <aside class="sidebar">
       <img class="movie-poster" src="https://image.tmdb.org/t/p/w342/{{movie?.poster_path}}">
@@ -12,10 +15,11 @@
     <article class="content">
       <tabset justified="true" type="pills" class="testing">
         <tab heading="Overview">
-          <div class="overview-pill">{{movie?.overview}}</div>
+          <app-overview [movie]="movie"></app-overview>
         </tab>
-        <tab heading="Pills 2">Pills content 2</tab>
-        <tab heading="Pills 3">Pills content 3</tab>
+        <tab heading="Cast">
+          <app-cast [cast]="cast"></app-cast>
+        </tab>
         <tab heading="Trailer">
           <div class="video-pill">
             <div class="embed-responsive embed-responsive-16by9">

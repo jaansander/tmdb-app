@@ -11,6 +11,7 @@ import { TmdbService } from '../services/tmdb.service';
 export class MovieDetailsComponent implements OnInit {
   movie: any;
   trailerUrl: any;
+  cast: any;
   @Input() movieId: string;
 
   constructor(private tmdbService: TmdbService,
@@ -18,6 +19,7 @@ export class MovieDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.getMovieDetails(this.movieId);
+    this.getMovieCast(this.movieId);
   }
 
   getMovieDetails(movieId: any) {
@@ -35,6 +37,12 @@ export class MovieDetailsComponent implements OnInit {
         trailerKey = element.key;
     });
     return trailerKey;
+  }
+
+  getMovieCast(movieId: any){
+    this.tmdbService.getMovieCast(movieId).then(res => {
+      this.cast = res;
+    })
   }
 
 
