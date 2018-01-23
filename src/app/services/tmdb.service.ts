@@ -48,7 +48,7 @@ export class TmdbService {
   }
 
   formatCastResponse(response: any){
-    return response.cast.splice(0, 6);
+    return response.cast;
   }
 
 }

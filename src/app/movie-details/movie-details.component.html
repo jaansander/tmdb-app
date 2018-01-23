@@ -1,7 +1,8 @@
 <div class="container">
   <div class="wrapper">
     <header class="header">{{movie?.title}}
-      <div class="header-vote-container">
+      <div [class.movie-tagline]="movie?.tagline"
+           [class.movie-no-tagline]="!movie?.tagline">
         <span class="header-vote">{{movie?.vote_average}}</span>
         <span class="header-max-vote">/10</span>
       </div>

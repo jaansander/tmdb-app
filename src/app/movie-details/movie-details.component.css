@@ -47,7 +47,6 @@ h1, p {
 
 .wrapper > * {
   background-color: #364e63;
-  border: 1px solid #FFFFFF;
   color: #fff;
   border-radius: 5px;
   padding: 10px;
@@ -77,9 +76,13 @@ h1, p {
   padding: 5px;
 }
 
-.header-vote-container{
+.movie-tagline{
   float: right;
   margin-top: 10px;
+}
+
+.movie-no-tagline{
+  float: right;
 }
 
 .header-max-vote{

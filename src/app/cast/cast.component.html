@@ -1,13 +1,13 @@
-<div class="cast-container" *ngFor="let c of cast">
-  <div class="wrapper">
-    <img class="proile-image" src="https://image.tmdb.org/t/p/w45/{{c.profile_path}}">
-    <div class="box content">
-      <div>
-        <span class="cast-item">Name: </span>{{c.name}}
-      </div>
-      <div>
-        <span class="cast-item">Character: </span>{{c.character}}
+<div class="cast-container">
+    <div class="wrapper" *ngFor="let c of cast">
+      <img class="proile-image" src="https://image.tmdb.org/t/p/w45/{{c.profile_path}}">
+      <div class="box content">
+        <div>
+          <span class="cast-item">Name: </span>{{c.name}}
+        </div>
+        <div>
+          <span class="cast-item">Character: </span>{{c.character}}
+        </div>
       </div>
     </div>
-  </div>
 </div>

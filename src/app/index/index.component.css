@@ -1,7 +1,6 @@
 .movie-list-container{
     background-color: #364e63;
     margin-top: 15px;
-    border: 1px solid #FFFFFF;
     border-radius: 5px;
 }
 
@@ -11,7 +10,7 @@
     height: 650px;
     background-color: #364e63;
     margin: 15px;
-    border: 1px solid #FFFFFF;
+    border: 1px solid #DE6B1E;
     border-radius: 5px;
 }
 
@@ -22,7 +21,7 @@
 
 .movie-details{
     padding-top: 10px;
-    padding-left: 6px;
+    margin-left: 4px;
     font-size: 15px;
     color: #DE6B1E;
     float: left;
@@ -71,7 +70,6 @@
     margin-top: 20px;
     text-align: left;
     padding: 30px;
-    border: 1px solid #FFFFFF;
     border-radius: 5px;
     padding-left: 50px;
 

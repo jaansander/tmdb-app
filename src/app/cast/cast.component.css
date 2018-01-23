@@ -2,9 +2,7 @@
     box-sizing: border-box;
   }
   .wrapper {
-    max-width: 980px;
     display: grid;
-    grid-gap: 10px;
   }
   
   @media screen and (min-width: 500px) {
@@ -17,6 +15,7 @@
   
     .content {
       float: right;
+      width: 98%;
     }
   
     .wrapper {
@@ -28,13 +27,13 @@
   
   .wrapper > * {
     background-color: #364e63;
-    border: 1px solid #FFFFFF;
+    border-bottom: 1px solid #DE6B1E;
     color: #fff;
-    border-radius: 5px;
-    padding: 1px;
+    width: 100%;
+    padding-bottom: 4px;
     /* needed for the floated layout*/
-    margin-top: 7px;
-    margin-left: 3px;
+    margin-top: 5px;
+    padding-left: 5px;
   }
 
 .box{
@@ -44,4 +43,10 @@
 
 .cast-item{
     color: #DE6B1E;
+}
+
+.cast-container{
+  margin-top: 5px;
+  height: 463px; 
+  overflow-y: scroll;
 }
