@@ -3,13 +3,18 @@
     <div class="search-title">
       Search for movies
     </div>
-    <input #searchBox class="search-box" 
-      (keyup.enter)="search(searchBox.value)" 
-      (blur)="search(searchBox.value)" 
-      placeholder="Search for movies using this form"/>
-    <button class="search-button" (click)="search(searchBox.value)">Search</button>
+    <form #searchForm="ngForm" (ngSubmit)="search()">
+      <input class="search-box" [(ngModel)]="searchTerm" name="searchTerm" placeholder="Search for movies using this form" />
+      <button class="search-button">Search</button>
+    </form>
   </div>
   <div class="movie-list-container">
+    <div *ngIf="searchTerm == ''">
+      <a *ngIf="previousPage >= 0" class="previous-page" [routerLink]="['/index']" [queryParams]="{ sort:sortParameter, page: previousPage }">&#8249; Previous</a>
+      <a *ngIf="previousPage == -1" class="disabled">Previous</a>
+      <span style="color: #FFFFFF">| </span>
+      <a class="next-page" [routerLink]="['/index']" [queryParams]="{ sort:sortParameter, page: nextPage }">Next &#8250;</a>
+    </div>
     <div class="card-container" *ngFor="let movie of movies">
       <img class="movie-poster" src="https://image.tmdb.org/t/p/w342/{{movie.posterPath}}">
       <div class="movie-title">{{movie.title}}</div>
@@ -24,5 +29,8 @@
         <span class="movie-rating-max">/10</span>
       </div>
     </div>
+  </div>
+  <div *ngIf="movies.length == 0">
+    <div class="no-movies">No movies found with "{{searchTerm}}" in their titles. :(</div>
   </div>
 </div>

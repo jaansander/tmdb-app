@@ -19,6 +19,7 @@ import { LanguagePipe } from './language-pipe.pipe';
 import { TimePipe } from './time-pipe.pipe';
 import { CastComponent } from './cast/cast.component';
 import { OverviewComponent } from './overview/overview.component';
+import {FormsModule} from '@angular/forms';
 
 
 
@@ -39,6 +40,7 @@ import { OverviewComponent } from './overview/overview.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     TabsModule.forRoot(),
     ModalModule.forRoot(),
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })

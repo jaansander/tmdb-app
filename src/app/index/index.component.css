@@ -100,6 +100,15 @@
     background-color: #b35619;
 }
 
+.no-movies{
+    color: #DE6B1E;
+    font-size: 35px;
+}
+
+a.disabled {
+    cursor: not-allowed;
+}
+
 @media (min-width: 1200px){
     .container {
         max-width: 100%; 

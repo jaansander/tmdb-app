@@ -1,14 +1,30 @@
 <div class="overview-pill">
-    <div class="overview-item">
-      <span class="overview-item-title">Description: </span>{{movie?.overview}}
-    </div>
-    <div class="overview-item">
-      <span class="overview-item-title">Release date: </span>{{movie?.release_date | date}}
-    </div>
-    <div class="overview-item">
-      <span class="overview-item-title">Runtime: </span>{{movie?.runtime | time}}
-    </div>
-    <div class="overview-item">
-      <span class="overview-item-title">Language: </span>{{movie?.original_language | language}}
-    </div>
+  <div class="overview-item" *ngIf="movie?.overview">
+    <span class="overview-item-title">Description: </span>{{movie?.overview}}
   </div>
+  <div class="overview-item" *ngIf="movie?.genres.length != 0">
+    <span class="overview-item-title">Genre: </span>
+    <span *ngFor="let genre of movie?.genres; let i=index">
+      {{genre.name}};
+    </span>
+  </div>
+  <div class="overview-item" *ngIf="movie?.release_date">
+    <span class="overview-item-title">Release date: </span>{{movie?.release_date | date}}
+  </div>
+  <div class="overview-item" *ngIf="movie?.runtime">
+    <span class="overview-item-title">Runtime: </span>{{movie?.runtime | time}}
+  </div>
+  <div class="overview-item" *ngIf="movie?.original_language">
+    <span class="overview-item-title">Language: </span>{{movie?.original_language | language}}
+  </div>
+  <div class="overview-item" *ngIf="movie?.homepage">
+    <span class="overview-item-title">Homepage: </span>
+    <a href="{{movie?.homepage}}">{{movie?.homepage}}</a>
+  </div>
+  <div class="overview-item" *ngIf="movie?.production_countries.length != 0">
+    <span class="overview-item-title">Country: </span>
+    <span *ngFor="let country of movie?.production_countries; let i=index">
+      {{country.name}};
+    </span>
+  </div>
+</div>

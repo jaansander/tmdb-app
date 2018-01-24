@@ -16,6 +16,11 @@ export class LanguagePipe implements PipeTransform {
       return 'Italian'
     else if(language == 'de')
       return 'German'
+    else if(language == 'et')
+      return 'Estonian'
+    else if(language == 'sv'){
+      return 'Swedish'
+    }
     return language;
   }
 } 

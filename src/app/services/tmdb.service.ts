@@ -10,8 +10,9 @@ export class TmdbService {
 
   constructor(private http: HttpClient) { }
 
-  getMovies(sortBy: string): Promise<any> {
-    return this.http.get(this.apiRoot + '/movie/' + sortBy + '?api_key=' + this.apiKey + '&language=en-US&page=1')
+  getMovies(sortBy: string, page: number): Promise<any> {
+    console.log(this.apiRoot + '/movie/' + sortBy + '?api_key=' + this.apiKey + '&language=en-US&page=' + page);
+    return this.http.get(this.apiRoot + '/movie/' + sortBy + '?api_key=' + this.apiKey + '&language=en-US&page=' + page)
       .toPromise()
       .then(res => this.formatResponse(res))
   }
