@@ -1,0 +1,14 @@
+<div class="card-container" *ngFor="let movie of movies">
+  <img class="movie-poster" src="https://image.tmdb.org/t/p/w342{{movie.poster_path}}">
+  <div class="movie-title">{{movie.title}}</div>
+  <div class="movie-release-date">Release date: {{movie.release_date | date}}</div>
+  <button type="button" class="movie-details" (click)="openModal(template)">View details>></button>
+  <ng-template #template>
+    <div class="modal-body" bsModal #autoShownModal="bs-modal">
+      <app-movie-details [movieId]="movie.id"></app-movie-details>
+    </div>
+  </ng-template>
+  <div class="movie-rating">{{movie.vote_average}}
+    <span class="movie-rating-max">/10</span>
+  </div>
+</div>

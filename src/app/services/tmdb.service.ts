@@ -11,10 +11,9 @@ export class TmdbService {
   constructor(private http: HttpClient) { }
 
   getMovies(sortBy: string, page: number): Promise<any> {
-    console.log(this.apiRoot + '/movie/' + sortBy + '?api_key=' + this.apiKey + '&language=en-US&page=' + page);
     return this.http.get(this.apiRoot + '/movie/' + sortBy + '?api_key=' + this.apiKey + '&language=en-US&page=' + page)
       .toPromise()
-      .then(res => this.formatResponse(res))
+      .then(res => res)
   }
 
   getMovieDetails(movieId: any) {
@@ -22,33 +21,29 @@ export class TmdbService {
       .toPromise()
   }
 
-  formatResponse(response: any) {
-    let movies = [];
-    response.results.forEach(element => {
-      var movie: Movie = <Movie>{};
-      movie.id = element.id;
-      movie.title = element.title;
-      movie.overview = element.overview;
-      movie.posterPath = element.poster_path;
-      movie.releaseDate = element.release_date;
-      movie.voteAverage = element.vote_average;
-      movies.push(movie);
-    });
-    return movies;
-  }
-
   searchMovies(searchTerm: any): any {
     return this.http.get(this.apiRoot + '/search/movie?api_key=' + this.apiKey + '&language=en-US&query=' + searchTerm + '&page=1')
-      .map(res => this.formatResponse(res))
+      .map(res => res)
   }
 
-  getMovieCast(movieId: any): Promise<any>  {
+  getMovieCast(movieId: any): Promise<any> {
     return this.http.get(this.apiRoot + '/movie/' + movieId + '/credits?api_key=' + this.apiKey)
       .toPromise()
       .then(res => this.formatCastResponse(res))
   }
 
-  formatCastResponse(response: any){
+  getActor(actorId: any): Promise<any> {
+    return this.http.get(this.apiRoot + '/person/'+ actorId + '?api_key=' + this.apiKey +'&language=en-US')
+      .toPromise()
+  }
+
+  getCredits(actorId: any): Promise<any> {
+    return this.http.get(this.apiRoot + '/person/' + actorId + '/movie_credits?api_key=' + this.apiKey +'&language=en-US')
+      .toPromise() 
+      .then(res => this.formatCastResponse(res))
+  }
+  
+  formatCastResponse(response: any) {
     return response.cast;
   }
 

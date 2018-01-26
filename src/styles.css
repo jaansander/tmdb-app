@@ -35,3 +35,8 @@ a{
     width: 1000px;
     right: 50%;
 }
+
+.movie-poster{
+    height: 513px;
+    width: 342px;
+}

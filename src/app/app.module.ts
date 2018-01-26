@@ -20,6 +20,8 @@ import { TimePipe } from './time-pipe.pipe';
 import { CastComponent } from './cast/cast.component';
 import { OverviewComponent } from './overview/overview.component';
 import {FormsModule} from '@angular/forms';
+import { ActorDetailsComponent } from './actor-details/actor-details.component';
+import { MovieCardComponent } from './movie-card/movie-card.component';
 
 
 
@@ -34,7 +36,9 @@ import {FormsModule} from '@angular/forms';
     LanguagePipe,
     TimePipe,
     CastComponent,
-    OverviewComponent
+    OverviewComponent,
+    ActorDetailsComponent,
+    MovieCardComponent,
   ],
   imports: [
     BrowserModule,

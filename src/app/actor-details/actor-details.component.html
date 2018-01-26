@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="wrapper">
+    <aside class="sidebar">
+      <img class="movie-poster" src="https://image.tmdb.org/t/p/h632{{details?.profile_path}}">
+    </aside>
+    <article class="content">
+      <h1 class="content-header">{{details?.name}}</h1>
+      <div *ngIf="details?.biography">
+        <span class="content-item">Biography: </span>{{details?.biography}}</div>
+      <div *ngIf="details?.place_of_birth">
+        <span class="content-item">From: </span>{{details?.place_of_birth}}</div>
+      <div *ngIf="details?.birthday">
+        <span class="content-item">Birthday: </span>{{details?.birthday | date}}</div>
+      <div *ngIf="details?.deathday">
+        <span class="content-item">Deathday: </span>{{details?.deathday | date}}</div>
+    </article>
+  </div>
+  <div class="movie-list-container">
+    <app-movie-card [movies]="credits"></app-movie-card>
+  </div>
+</div>

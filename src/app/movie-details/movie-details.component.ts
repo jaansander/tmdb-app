@@ -26,7 +26,6 @@ export class MovieDetailsComponent implements OnInit {
     this.tmdbService.getMovieDetails(movieId).then(res => {
       this.movie = res;
       this.trailerUrl = 'https://www.youtube.com/embed/' + this.getTrailerKey(this.movie.videos.results);
-      console.log(this.movie)
     })
   }
 
@@ -35,8 +34,7 @@ export class MovieDetailsComponent implements OnInit {
     videos.forEach(element => {
       if (element.name.indexOf('Trailer') !== -1 || element.name.indexOf('trailer') !== -1)
         trailerKey = element.key;
-    });
-    return trailerKey;
+    });    return trailerKey;
   }
 
   getMovieCast(movieId: any){

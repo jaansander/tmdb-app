@@ -4,60 +4,6 @@
     border-radius: 5px;
 }
 
-.card-container{
-    display: inline-block;
-    width: 345px;
-    height: 650px;
-    background-color: #364e63;
-    margin: 15px;
-    border: 1px solid #DE6B1E;
-    border-radius: 5px;
-}
-
-.movie-poster{
-    height: 513px;
-    width: 342px;
-}
-
-.movie-details{
-    padding-top: 10px;
-    margin-left: 4px;
-    font-size: 15px;
-    color: #DE6B1E;
-    float: left;
-    cursor: pointer;
-    border: 0px;
-    background-color: #364e63;
-}
-
-.movie-rating-max{
-    font-size: 15px;
-    color: #FFFFFF;
-}
-
-.movie-rating{
-    font-size: 25px;
-    color: #DE6B1E;
-    float: right;
-    padding-right: 6px;
-}
-
-.movie-release-date{
-    font-size: 20px;
-    color: #FFFFFF;
-}
-
-.movie-title{
-    color: #DE6B1E;
-    font-size: 35px;
-    display: inline-block;
-    width: 100%;
-    white-space: nowrap;
-    overflow: hidden !important;
-    text-overflow: ellipsis;
-    padding-left: 4px;
-}
-
 .container{
     text-align: center;
     padding-left: 90px;

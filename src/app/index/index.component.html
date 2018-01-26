@@ -15,20 +15,7 @@
       <span style="color: #FFFFFF">| </span>
       <a class="next-page" [routerLink]="['/index']" [queryParams]="{ sort:sortParameter, page: nextPage }">Next &#8250;</a>
     </div>
-    <div class="card-container" *ngFor="let movie of movies">
-      <img class="movie-poster" src="https://image.tmdb.org/t/p/w342/{{movie.posterPath}}">
-      <div class="movie-title">{{movie.title}}</div>
-      <div class="movie-release-date">Release date: {{movie.releaseDate}}</div>
-      <button type="button" class="movie-details" (click)="openModal(template)">View details>></button>
-      <ng-template #template>
-        <div class="modal-body">
-          <app-movie-details [movieId]="movie.id"></app-movie-details>
-        </div>
-      </ng-template>
-      <div class="movie-rating">{{movie.voteAverage}}
-        <span class="movie-rating-max">/10</span>
-      </div>
-    </div>
+    <app-movie-card [movies]="movies.results"></app-movie-card>
   </div>
   <div *ngIf="movies.length == 0">
     <div class="no-movies">No movies found with "{{searchTerm}}" in their titles. :(</div>

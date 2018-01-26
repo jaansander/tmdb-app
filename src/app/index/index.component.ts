@@ -1,9 +1,6 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { TmdbService } from '../services/tmdb.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { BsModalService } from 'ngx-bootstrap/modal';
-import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
-import { nearer } from 'q';
 
 @Component({
   selector: 'app-index',
@@ -11,27 +8,17 @@ import { nearer } from 'q';
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit {
-
   searchTerm: string;
   sortParameter: number;
   nextPage: number;
   previousPage: number;
   movies = [];
-  modalRef: BsModalRef;
-  config = {
-    animated: true,
-    keyboard: true,
-    backdrop: true,
-    ignoreBackdropClick: false
-  };
 
-  constructor(private modalService: BsModalService,
-    private tmdbService: TmdbService,
+  constructor(private tmdbService: TmdbService,
     private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe((params: Params) => {
-
       this.nextPage = Number(params['page'] || 0) + 1;
       this.previousPage = Number(params['page'] || 0) - 1;
       this.sortParameter = params['sort'];
@@ -44,7 +31,6 @@ export class IndexComponent implements OnInit {
   getMovies(sortBy: string, page: number) {
     this.tmdbService.getMovies(sortBy, page).then(res => {
       this.movies = res;
-      console.log(this.movies);
     })
   }
 
@@ -59,15 +45,10 @@ export class IndexComponent implements OnInit {
     return 'upcoming'
   }
 
-  openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template, this.config);
-  }
-
   search() {
     if (this.searchTerm) {
       this.tmdbService.searchMovies(this.searchTerm).subscribe(res => {
         this.movies = res;
-        console.log(this.movies);
       });
     }
   }
