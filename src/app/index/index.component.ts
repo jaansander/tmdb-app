@@ -12,6 +12,8 @@ export class IndexComponent implements OnInit {
   sortParameter: number;
   nextPage: number;
   previousPage: number;
+  totalPages: number;
+  oldSortParameter: any = 0;
   movies = [];
 
   constructor(private tmdbService: TmdbService,
@@ -22,15 +24,27 @@ export class IndexComponent implements OnInit {
       this.nextPage = Number(params['page'] || 0) + 1;
       this.previousPage = Number(params['page'] || 0) - 1;
       this.sortParameter = params['sort'];
-      let sortBy = this.getSortBy(this.sortParameter);
-      this.searchTerm = '';
-      this.getMovies(sortBy, this.nextPage);
+      if (this.isSearchResultNextPageClicked()) {
+        this.search(this.nextPage);
+      } else {
+        this.searchTerm = '';
+        let sortBy = this.getSortBy(this.sortParameter);
+        this.oldSortParameter = this.sortParameter;
+        this.getMovies(sortBy, this.nextPage);
+      }
     });
+  }
+
+  isSearchResultNextPageClicked() {
+    return this.oldSortParameter == this.sortParameter
+      && this.oldSortParameter != 0
+      && this.searchTerm != '';
   }
 
   getMovies(sortBy: string, page: number) {
     this.tmdbService.getMovies(sortBy, page).then(res => {
-      this.movies = res;
+      this.totalPages = res.total_pages;
+      this.movies = res.results;
     })
   }
 
@@ -45,10 +59,11 @@ export class IndexComponent implements OnInit {
     return 'upcoming'
   }
 
-  search() {
+  search(page: number) {
     if (this.searchTerm) {
-      this.tmdbService.searchMovies(this.searchTerm).subscribe(res => {
-        this.movies = res;
+      this.tmdbService.searchMovies(this.searchTerm, page).subscribe(res => {
+        this.totalPages = res.total_pages;
+        this.movies = res.results;
       });
     }
   }

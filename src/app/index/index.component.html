@@ -9,13 +9,14 @@
     </form>
   </div>
   <div class="movie-list-container">
-    <div *ngIf="searchTerm == ''">
+    <div *ngIf="totalPages != 1">
       <a *ngIf="previousPage >= 0" class="previous-page" [routerLink]="['/index']" [queryParams]="{ sort:sortParameter, page: previousPage }">&#8249; Previous</a>
       <a *ngIf="previousPage == -1" class="disabled">Previous</a>
       <span style="color: #FFFFFF">| </span>
-      <a class="next-page" [routerLink]="['/index']" [queryParams]="{ sort:sortParameter, page: nextPage }">Next &#8250;</a>
+      <a *ngIf="totalPages != nextPage" class="next-page" [routerLink]="['/index']" [queryParams]="{ sort:sortParameter, page: nextPage }">Next &#8250;</a>
+      <a *ngIf="totalPages == nextPage" class="disabled">Next</a>
     </div>
-    <app-movie-card [movies]="movies.results"></app-movie-card>
+    <app-movie-card [movies]="movies"></app-movie-card>
   </div>
   <div *ngIf="movies.length == 0">
     <div class="no-movies">No movies found with "{{searchTerm}}" in their titles. :(</div>

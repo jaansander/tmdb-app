@@ -13,7 +13,6 @@ export class TmdbService {
   getMovies(sortBy: string, page: number): Promise<any> {
     return this.http.get(this.apiRoot + '/movie/' + sortBy + '?api_key=' + this.apiKey + '&language=en-US&page=' + page)
       .toPromise()
-      .then(res => res)
   }
 
   getMovieDetails(movieId: any) {
@@ -21,8 +20,8 @@ export class TmdbService {
       .toPromise()
   }
 
-  searchMovies(searchTerm: any): any {
-    return this.http.get(this.apiRoot + '/search/movie?api_key=' + this.apiKey + '&language=en-US&query=' + searchTerm + '&page=1')
+  searchMovies(searchTerm: any, page: number): any {
+    return this.http.get(this.apiRoot + '/search/movie?api_key=' + this.apiKey + '&language=en-US&query=' + searchTerm + '&page=' + page)
       .map(res => res)
   }
 
@@ -47,13 +46,4 @@ export class TmdbService {
     return response.cast;
   }
 
-}
-
-export interface Movie {
-  id: string;
-  title: string;
-  overview: string;
-  posterPath: string;
-  releaseDate: string;
-  voteAverage: number;
 }
